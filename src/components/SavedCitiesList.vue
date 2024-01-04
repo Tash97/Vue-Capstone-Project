@@ -3,7 +3,7 @@
         <div class="flex flex-col items-center text-2xl font-semibold gap-y-7 h-full w-[40%]">
             <h2>Saved Cities</h2>
             <div v-if="noResults">No cities saved yet!</div>
-            <div v-for="city in myCities" @click="townPage(city)" class="bg-slate-300 rounded-xl shadow-xl h-[15vh] w-full flex justify-between" >
+            <div v-for="city in myCities" @click="townPage(city)" class="bg-slate-300 rounded-xl shadow-xl h-[15vh] w-full flex justify-between hover:cursor-pointer" >
                 <div class=" ms-5 flex items-center">
                     <h2>{{ city.city }}, {{ city.state }}</h2>
                 </div>
@@ -68,7 +68,6 @@
     }
     await getCities();
 
-    console.log(myCities.value[0].weather);
 
 
 </script>

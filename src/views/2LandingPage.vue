@@ -6,13 +6,13 @@
         <h2 class="text-3xl">
             {{ displayLocation }}
         </h2>
-        <div @click="addCity" v-if="addable && isAuthenticated"  class="absolute ms-[91.5%] flex">
+        <div @click="addCity" v-if="addable && isAuthenticated"  class="absolute ms-[91.5%] flex hover:cursor-pointer">
             <div class="me-2"><i class="fa-solid fa-plus text-md"></i></div>
             <p class="text-md">Add City</p>
         </div>
-        <div @click="deleteCity" v-if="deletable && isAuthenticated"  class="absolute ms-[89%] flex">
+        <div @click="deleteCity" v-if="deletable && isAuthenticated"  class="absolute ms-[89%] flex hover:cursor-pointer">
             <div class="me-2"><i class="fa-solid fa-trash text-md"></i></div>
-            <p class="text-md">Remove City</p>
+            <p class="text-md ">Remove City</p>
         </div>
         <div  v-if="!isAuthenticated"  class="absolute ms-[84%] flex">
             <p class="text-md">Login to add city to favorites!</p>

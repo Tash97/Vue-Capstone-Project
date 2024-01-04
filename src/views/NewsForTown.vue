@@ -3,11 +3,11 @@
         <h2 class="text-3xl">
             {{ route.query.locationName }}
         </h2>
-        <div @click="addCity" v-if="addable"  class="absolute ms-[91.5%] flex">
+        <div @click="addCity" v-if="addable"  class="absolute ms-[91.5%] flex hover:cursor-pointer">
             <div class="me-2"><i class="fa-solid fa-plus text-md"></i></div>
             <p class="text-md">Add City</p>
         </div>
-        <div @click="deleteCity" v-if="deletable"  class="absolute ms-[89%] flex">
+        <div @click="deleteCity" v-if="deletable"  class="absolute ms-[89%] flex hover:cursor-pointer">
             <div class="me-2"><i class="fa-solid fa-trash text-md"></i></div>
             <p class="text-md">Remove City</p>
         </div>

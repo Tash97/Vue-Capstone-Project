@@ -20,7 +20,7 @@
                     <path d="M1,50 Q1,1 25,1 L75,1 Q99,1 99,50 Q99,99 75,99 L25,99 Q1,99 1,50 " />
                     <path stroke="rgb(226,232,240)" stroke-width=".85px" @click="slideToggle" fill="rgb(226,232,240)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " />
                     <path stroke="rgba(0,0,0,0)" stroke-width=".85px" @click="slideToggle" fill="rgba(0,0,0,0)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " />
-                    <path @click="slideToggle" id="toggleButton" fill="url(#grad1)"  d="M5.5,50 Q5.5,12 25,12 L42,12 Q61,12 61,50 Q61,87 42,89 L25,89 Q5.5,88 5.5,50 " />
+                    <path @click="slideToggle" class="hover:cursor-pointer" id="toggleButton" fill="url(#grad1)"  d="M5.5,50 Q5.5,12 25,12 L42,12 Q61,12 61,50 Q61,87 42,89 L25,89 Q5.5,88 5.5,50 " />
                 </svg>
             </div>
         </div>

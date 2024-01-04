@@ -1,16 +1,16 @@
 <template>
     <div class="flex flex-col items-center w-[90%] overflow-hidden">
         <div class="flex w-[79%] mb-[3.3%]">
-            <div class="flex items-end "><i @click="displaysHolderback()" id="caretLeft" class="fa-solid fa-caret-left text-[1.75rem] text-[rgba(0,0,0,.5)] mb-2.5"></i></div>
+            <div class="flex items-end "><i @click="displaysHolderback()" id="caretLeft" class="fa-solid fa-caret-left text-[1.75rem] text-[rgba(0,0,0,.5)] mb-2.5 hover:cursor-pointer"></i></div>
             <h2 class="text-3xl ms-[20%]">Weather: {{ dayOrHour }}</h2>
-            <div class="flex items-end ms-auto "><i @click="displaysHolderforward()" id="caretRight" class="fa-solid fa-caret-right text-[1.75rem] mb-2.5"></i></div>
+            <div class="flex items-end ms-auto "><i @click="displaysHolderforward()" id="caretRight" class="fa-solid fa-caret-right text-[1.75rem] mb-2.5 hover:cursor-pointer"></i></div>
         </div>
         <div class="flex items-center w-full h-[37.9vh] rounded-xl">
             <div class="flex justify-center rounded-2xl bg-slate-300 shadow-2xl w-full h-[100%]">
-                <div id="dayHolderBackward" @click="scrollDailyBackward()" class="flex w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl">
+                <div id="dayHolderBackward" @click="scrollDailyBackward()" class="flex w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
-                <div id="hourHolderBackward" @click="scrollHourlyBackward()" class="hidden w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl">
+                <div id="hourHolderBackward" @click="scrollHourlyBackward()" class="hidden w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
                 <div id="weatherTimeDisplay" class="flex w-4/5 ">
@@ -48,10 +48,10 @@
                         </div>
                     </div>
                 </div>
-                <div id="hourHolderFoward" @click="scrollHourlyForward" class="hidden w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl">
+                <div id="hourHolderFoward" @click="scrollHourlyForward" class="hidden w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer">
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
-                <div id="dayHolderFoward" @click="scrollDailyForward" class="flex w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl">
+                <div id="dayHolderFoward" @click="scrollDailyForward" class="flex w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer">
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
             </div>

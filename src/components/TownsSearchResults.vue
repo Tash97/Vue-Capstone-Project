@@ -1,5 +1,5 @@
 <template>
-    <div  class="flex w-full h-[30vh] rounded-lg bg-white shadow-2xl" v-for="result in results" @click="searchTownPage(result)">
+    <div  class="flex w-full h-[30vh] rounded-lg bg-white shadow-2xl hover:cursor-pointer" v-for="result in results" @click="searchTownPage(result)">
         <div class=" w-2/5 h-full">
             <img class="rounded-s-lg w-full h-full object-cover" :src="result.pics" /> 
         </div>
