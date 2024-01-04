@@ -5,7 +5,7 @@ import LandingPage from '../views/1LandingPage.vue'
 import searchResults from '../views/NewsQueryResults.vue'
 import categoryResults from '../views/CategoryResults.vue'
 import savedCities from '../views/savedCities.vue'
-import { authGuard } from '@auth0/auth0-vue'
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

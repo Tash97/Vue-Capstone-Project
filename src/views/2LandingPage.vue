@@ -6,11 +6,11 @@
         <h2 class="text-3xl">
             {{ displayLocation }}
         </h2>
-        <div @click="addCity" v-if="addable && isAuthenticated"  class="absolute ms-[91.5%] flex hover:cursor-pointer">
+        <div v-if="addable && isAuthenticated" class="absolute ms-[91.5%] flex hover:cursor-pointer"  @click="addCity">
             <div class="me-2"><i class="fa-solid fa-plus text-md"></i></div>
             <p class="text-md">Add City</p>
         </div>
-        <div @click="deleteCity" v-if="deletable && isAuthenticated"  class="absolute ms-[89%] flex hover:cursor-pointer">
+        <div v-if="deletable && isAuthenticated" class="absolute ms-[89%] flex hover:cursor-pointer"  @click="deleteCity">
             <div class="me-2"><i class="fa-solid fa-trash text-md"></i></div>
             <p class="text-md ">Remove City</p>
         </div>
@@ -56,6 +56,9 @@
 
     {/* function that retrieves ip to obtain location */}
 
+    const localNewStories = ref(null)
+
+
     const apiCall = async() => {
         try {
             const locationResponse = await fetch(`https://get.geojs.io/v1/ip/geo.json`) 
@@ -64,22 +67,22 @@
             locationDataRef.value = locationData
             displayLocation.value = locationData.city + ", " + locationData.region
 
-            return locationData
+            localNewStories.value = locationData
         } catch {
             locationError.value = true
         }    
     }
-    const localNewStories = await apiCall()
+    await apiCall()
 
     {/* variables for function that favorites cities */}
 
     const myCities = ref([])
     const location = {
-            state: localNewStories.region,
-            city: localNewStories.city,
+            state: localNewStories.value.region,
+            city: localNewStories.value.city,
             coords: {
-                lat:localNewStories.latitude,
-                lon: localNewStories.longitude
+                lat:localNewStories.value.latitude,
+                lon: localNewStories.value.longitude
             }
         }
     const addable = ref(true)

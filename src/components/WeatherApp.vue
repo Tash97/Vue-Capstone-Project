@@ -1,16 +1,16 @@
 <template>
     <div class="flex flex-col items-center w-[90%] overflow-hidden">
         <div class="flex w-[79%] mb-[3.3%]">
-            <div class="flex items-end "><i @click="displaysHolderback()" id="caretLeft" class="fa-solid fa-caret-left text-[1.75rem] text-[rgba(0,0,0,.5)] mb-2.5 hover:cursor-pointer"></i></div>
+            <div class="flex items-end "><i id="caretLeft" class="fa-solid fa-caret-left text-[1.75rem] text-[rgba(0,0,0,.5)] mb-2.5 hover:cursor-pointer" @click="displaysHolderback()"></i></div>
             <h2 class="text-3xl ms-[20%]">Weather: {{ dayOrHour }}</h2>
-            <div class="flex items-end ms-auto "><i @click="displaysHolderforward()" id="caretRight" class="fa-solid fa-caret-right text-[1.75rem] mb-2.5 hover:cursor-pointer"></i></div>
+            <div class="flex items-end ms-auto "><i id="caretRight" class="fa-solid fa-caret-right text-[1.75rem] mb-2.5 hover:cursor-pointer" @click="displaysHolderforward()"></i></div>
         </div>
         <div class="flex items-center w-full h-[37.9vh] rounded-xl">
             <div class="flex justify-center rounded-2xl bg-slate-300 shadow-2xl w-full h-[100%]">
-                <div id="dayHolderBackward" @click="scrollDailyBackward()" class="flex w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer">
+                <div id="dayHolderBackward" class="flex w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer" @click="scrollDailyBackward()">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
-                <div id="hourHolderBackward" @click="scrollHourlyBackward()" class="hidden w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer">
+                <div id="hourHolderBackward" class="hidden w-[10%] z-20 justify-center items-center text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] rounded-s-xl text-5xl hover:cursor-pointer" @click="scrollHourlyBackward()">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
                 <div id="weatherTimeDisplay" class="flex w-4/5 ">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="flex min-w-[100%] overflow-x-hidden ms-[20%]">
                         <div id="hourlyWeatherScrollGrab" class="flex min-w-[100%] h-full">
-                            <div v-for="hourData in weather.hourly" :key="hourData.dt" id="hourlyWeatherScrollElement" class="flex flex-col min-w-[25%]  items-center justify-around">
+                            <div v-for="hourData in weather.hourly" id="hourlyWeatherScrollElement" :key="hourData.dt" class="flex flex-col min-w-[25%]  items-center justify-around">
                                 <p class="whitespace-nowrap text-2xl">
                                     {{ new Date(
                                         hourData.currentTime).toLocaleTimeString("en-us", {
@@ -48,10 +48,10 @@
                         </div>
                     </div>
                 </div>
-                <div id="hourHolderFoward" @click="scrollHourlyForward" class="hidden w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer">
+                <div id="hourHolderFoward" class="hidden w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer" @click="scrollHourlyForward">
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
-                <div id="dayHolderFoward" @click="scrollDailyForward" class="flex w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer">
+                <div id="dayHolderFoward" class="flex w-[10%] z-20 justify-center items-center rounded-e-xl text-white bg-gradient-to-t from-black to-[rgb(57,60,63)] text-5xl hover:cursor-pointer" @click="scrollDailyForward">
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
             </div>
@@ -63,11 +63,20 @@
     import { ref } from 'vue'
 
     const props = defineProps({
-        lat: 'number',
-        lon: 'number'
+        lat: {
+            type: String,
+            default: '8675309'
+        },
+        lon: {
+            type: String,
+            default: '8675309'
+        }
     })
 
     {/* function to grab weather data */}
+
+    const weather = ref(null) 
+
 
     const weatherGrab = async() => {
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${ props.lat }&lon=${ props.lon }&appid=657363553425d46400ca20a477dfa578&units=imperial`)
@@ -82,9 +91,9 @@
             day.currentMonth = date.toLocaleDateString('en-US', { month: 'long' })
             day.currentDay = date.toLocaleDateString('en-US')
         }) 
-        return weatherData
+        weather.value = weatherData
     }
-    const weather = await weatherGrab() 
+    await weatherGrab()
 
     {/* functions to animate weather app scrolling */}
 

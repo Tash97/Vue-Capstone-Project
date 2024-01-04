@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full h-[80vh] rounded-b-2xl shadow-2xl" v-for="result in results">
+    <div v-for="result in results" :key="result.title" class="w-full h-[80vh] rounded-b-2xl shadow-2xl">
         <div class="bg-gray-400 bg-opacity-50 w-full h-[75%] rounded-t-2xl">
             <img class="w-full h-full object-contain" :src="result.urlToImage" alt="">
         </div>
@@ -19,11 +19,14 @@
 </template>
 
 <script setup>
-    import { useRoute, useRouter } from 'vue-router'
+    import { useRoute } from 'vue-router'
+    import { ref } from 'vue';
 
     {/* function that retrieves news Data based on category */}
 
     const route = useRoute()
+    const results = ref(null)
+
 
     const searchGrab = async() => {
             const newsResponse = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${route.params.category}&apiKey=4522f236338f41cca110abb258c467d8`) 
@@ -44,7 +47,7 @@
                     const date = new Date(array[t].publishedAt)
                     array[t].published_at = date.toLocaleDateString('en-us')
                 }
-            return array       
+            results.value = array       
     }
-    const results = await searchGrab()
+    searchGrab();
 </script>

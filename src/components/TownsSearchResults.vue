@@ -1,5 +1,5 @@
 <template>
-    <div  class="flex w-full h-[30vh] rounded-lg bg-white shadow-2xl hover:cursor-pointer" v-for="result in results" @click="searchTownPage(result)">
+    <div  v-for="result in results" :key="result.text" class="flex w-full h-[30vh] rounded-lg bg-white shadow-2xl hover:cursor-pointer" @click="searchTownPage(result)">
         <div class=" w-2/5 h-full">
             <img class="rounded-s-lg w-full h-full object-cover" :src="result.pics" /> 
         </div>
@@ -15,19 +15,22 @@
 
 <script setup>
     import { useRoute, useRouter } from 'vue-router'
+    import { ref } from 'vue';
 
     {/* function to retrieve town search results from search by town */}
 
     const route = useRoute()
+    const results = ref(null)
+
     const resultsGrab = async() => {
         const SearchResponse = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${ route.query.query }.json?access_token=pk.eyJ1IjoidG5zMTIzOTg3IiwiYSI6ImNscWxtZm0zcTI1M3Iya3BxeDQxazRvMHcifQ.rtwUeEDf4epFC-44QYi9RQ&types=place&country=us`)
         const SearchData = await SearchResponse.json()
         for(let i = 0; i < SearchData.features.length; i++){
             SearchData.features[i].pics = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/[${SearchData.features[i].bbox}]/400x250?access_token=pk.eyJ1IjoidG5zMTIzOTg3IiwiYSI6ImNscWxtZm0zcTI1M3Iya3BxeDQxazRvMHcifQ.rtwUeEDf4epFC-44QYi9RQ`        
         }
-        return SearchData.features
+        results.value = SearchData.features
     }
-    const results = await resultsGrab()
+    resultsGrab()
 
     {/* function to go to town selected from town search results */}
 

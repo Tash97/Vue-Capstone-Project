@@ -3,13 +3,16 @@
         <h2 class="text-3xl">
             {{ route.query.locationName }}
         </h2>
-        <div @click="addCity" v-if="addable"  class="absolute ms-[91.5%] flex hover:cursor-pointer">
+        <div v-if="addable && isAuthenticated" class="absolute ms-[91.5%] flex hover:cursor-pointer"  @click="addCity">
             <div class="me-2"><i class="fa-solid fa-plus text-md"></i></div>
             <p class="text-md">Add City</p>
         </div>
-        <div @click="deleteCity" v-if="deletable"  class="absolute ms-[89%] flex hover:cursor-pointer">
+        <div v-if="deletable && isAuthenticated" class="absolute ms-[89%] flex hover:cursor-pointer"  @click="deleteCity">
             <div class="me-2"><i class="fa-solid fa-trash text-md"></i></div>
             <p class="text-md">Remove City</p>
+        </div>
+        <div  v-if="!isAuthenticated"  class="absolute ms-[84%] flex">
+            <p class="text-md">Login to add city to favorites!</p>
         </div>
     </div>
     <div class="flex justify-around">
@@ -34,6 +37,10 @@
     import TownNewsResults from '../components/TownNewsResults.vue';
     import { useRoute } from 'vue-router'
     import { ref } from 'vue';
+    import { useAuth0 } from '@auth0/auth0-vue'
+
+    const isAuthenticated = useAuth0().isAuthenticated
+
 
     const route = useRoute()
 

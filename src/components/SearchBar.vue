@@ -18,20 +18,20 @@
                         </linearGradient>
                     </defs>
                     <path d="M1,50 Q1,1 25,1 L75,1 Q99,1 99,50 Q99,99 75,99 L25,99 Q1,99 1,50 " />
-                    <path stroke="rgb(226,232,240)" stroke-width=".85px" @click="slideToggle" fill="rgb(226,232,240)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " />
-                    <path stroke="rgba(0,0,0,0)" stroke-width=".85px" @click="slideToggle" fill="rgba(0,0,0,0)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " />
-                    <path @click="slideToggle" class="hover:cursor-pointer" id="toggleButton" fill="url(#grad1)"  d="M5.5,50 Q5.5,12 25,12 L42,12 Q61,12 61,50 Q61,87 42,89 L25,89 Q5.5,88 5.5,50 " />
+                    <path stroke="rgb(226,232,240)" stroke-width=".85px" fill="rgb(226,232,240)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " @click="slideToggle" />
+                    <path stroke="rgba(0,0,0,0)" stroke-width=".85px" fill="rgba(0,0,0,0)" d="M5,50 Q5,11 25,11 L75,11 Q95,11 95,50 Q95,90 75,90 L25,90 Q5,90 5,50 " @click="slideToggle" />
+                    <path id="toggleButton" class="hover:cursor-pointer" fill="url(#grad1)" d="M5.5,50 Q5.5,12 25,12 L42,12 Q61,12 61,50 Q61,87 42,89 L25,89 Q5.5,88 5.5,50 "  @click="slideToggle" />
                 </svg>
             </div>
         </div>
         <div id="storySearchRef" class=" h-full flex items-center">
             <div>
-                <input v-model="search" @keypress.enter="searchPage()" @input="grabResults" @click="(e) => {e.stopPropagation()}"  id="searchByArticle" class="rounded px-2 py-1 text-black text-lg w-[17.25vw]" placeholder="Search for News Stories" type="text">
+                <input id="searchByArticle" v-model="search" class="rounded px-2 py-1 text-black text-lg w-[17.25vw]" placeholder="Search for News Stories"  type="text" @keypress.enter="searchPage()" @input="grabResults" @click="(e) => {e.stopPropagation()}">
                 <div v-if="searchResults" class="absolute border-black overflow-hidden border-[1px] bg-slate-100 rounded-sm left-[8.82%] flex flex-col w-[50%] z-40">
                     <div v-if="!searchResults.length" class="text-black h-full w-full py-4 ps-4 text-lg">
                         <h2>No results found!</h2>
                     </div>
-                    <div class="flex w-full h-[15vh] border-b-[1px] border-black " v-for="result in searchResults" >
+                    <div v-for="result in searchResults" :key="result.url" class="flex w-full h-[15vh] border-b-[1px] border-black " >
                         <a :href="result.url" class="flex w-full h-full">
                             <div class=" w-1/3 h-full">
                                 <img class=" w-full h-full object-cover" :src="result.urlToImage" alt="hi">
@@ -43,21 +43,21 @@
                     </div>
                 </div>
             </div>
-            <button @click="searchPage" class="rounded px-2 py-[2.12%] bg-gradient-to-b from-blue-600 to-blue-900 text-white mx-3">Search</button>
+            <button class="rounded px-2 py-[2.12%] bg-gradient-to-b from-blue-600 to-blue-900 text-white mx-3" @click="searchPage">Search</button>
         </div>
         <div id="townSearchRef" class="hidden h-full items-center">
             <div>
-                <input v-model="searchTown" @input="grabTownResults" @keypress.enter="searchTowns" @click="(e) => {e.stopPropagation()}" id="searchByTown" class="rounded px-2 py-1 text-black text-lg w-[17.25vw] " placeholder="Search for News by City" type="text">
+                <input id="searchByTown" v-model="searchTown" class="rounded px-2 py-1 text-black text-lg w-[17.25vw] " placeholder="Search for News by City" type="text" @input="grabTownResults" @keypress.enter="searchTowns" @click="(e) => {e.stopPropagation()}">
                 <div v-if="searchResults2" class="text-black absolute border-black border-[1px] rounded-sm left-[41.25%] bg-white flex flex-col w-[27.1vw]  z-40 ">
                     <div v-if="!searchResults2.length" class="py-1 px-1 text-xl">
                         <h2>No results found!</h2>
                     </div>
-                    <div class="flex border-black border-b-[1px] py-1 px-1" v-for="result in searchResults2" @click="searchTownPage(result)" >
+                    <div v-for="result in searchResults2" :key="result.place_name" class="flex border-black border-b-[1px] py-1 px-1" @click="searchTownPage(result)" >
                         <p class="text-lg">{{ result.place_name }}</p>
                     </div>
                 </div>
             </div>
-            <button @click="searchTowns" class="rounded px-2 py-[2.12%] bg-gradient-to-b from-blue-600 to-blue-900 text-white mx-3">Search</button>
+            <button class="rounded px-2 py-[2.12%] bg-gradient-to-b from-blue-600 to-blue-900 text-white mx-3" @click="searchTowns">Search</button>
         </div>
     </div>
 </template>
