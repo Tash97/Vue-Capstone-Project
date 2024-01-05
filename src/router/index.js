@@ -5,6 +5,7 @@ import LandingPage from '../views/1LandingPage.vue'
 import searchResults from '../views/NewsQueryResults.vue'
 import categoryResults from '../views/CategoryResults.vue'
 import savedCities from '../views/savedCities.vue'
+import { authGuard } from '@auth0/auth0-vue'
 
 
 const router = createRouter({
@@ -56,7 +57,8 @@ const router = createRouter({
             component: savedCities,
             meta: {
                 title: 'My Cities'
-            }
+            },
+            beforeEnter: authGuard
         },
     ]
 })
