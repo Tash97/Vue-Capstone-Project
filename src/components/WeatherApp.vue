@@ -101,17 +101,17 @@
         const animation = document.getElementById('dailyWeatherScrollGrab')
         if(!animation.style.animation || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR"){
             animation.style.animation = 'slideWeather .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR2"){
             animation.style.animation = 'slideWeather2 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather2' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR2"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather2' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR3"){
             animation.style.animation = 'slideWeather3 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather3' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR3"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather3' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR4"){
             animation.style.animation = 'slideWeather4 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather4' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR4"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather4' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR5"){
             animation.style.animation = 'slideWeather5 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather5' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR5"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather5' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR6"){
             animation.style.animation = 'slideWeather6 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather6' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR6"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather6' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR7"){
             animation.style.animation = 'slideWeather7 .5s forwards ease-in-out'
         } 
     }
@@ -139,25 +139,25 @@
         const animation = document.getElementById('hourlyWeatherScrollGrab')
         if(!animation.style.animation || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR"){
             animation.style.animation = 'slideWeather .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR2"){
             animation.style.animation = 'slideWeather2 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather2' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR2"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather2' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR3"){
             animation.style.animation = 'slideWeather3 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather3' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR3"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather3' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR4"){
             animation.style.animation = 'slideWeather4 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather4' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR4"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather4' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR5"){
             animation.style.animation = 'slideWeather5 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather5' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR5"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather5' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR6"){
             animation.style.animation = 'slideWeather6 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather6' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR6"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather6' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR7"){
             animation.style.animation = 'slideWeather7 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather7' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR7"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather7' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR8"){
             animation.style.animation = 'slideWeather8 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather8' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR8"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather8' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR9"){
             animation.style.animation = 'slideWeather9 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather9' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR9"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather9' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR10"){
             animation.style.animation = 'slideWeather10 .5s forwards ease-in-out'
-        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather10' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR10"){
+        } else if(animation.style.animation === '0.5s ease-in-out 0s 1 normal forwards running slideWeather10' || animation.style.animation === "0.5s ease-in-out 0s 1 normal forwards running slideWeatherR11"){
             animation.style.animation = 'slideWeather11 .5s forwards ease-in-out'
         }
     }   
